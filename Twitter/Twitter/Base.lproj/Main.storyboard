@@ -36,19 +36,18 @@
         <scene sceneID="Kvz-i2-kei">
             <objects>
                 <viewController id="MSa-gX-643" customClass="TweetsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2Og-Rt-nLd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="z4X-y7-Swk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gFu-yA-2Ns">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="fuG-FF-Zqx"/>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="fuG-FF-Zqx">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="4jv-5G-AUK">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="MSa-gX-643" id="hxM-Ke-w9s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1c-70-YCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +56,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eBD-yr-zbg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hWC-Gk-HuC" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hWC-Gk-HuC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nGc-4Z-PaO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

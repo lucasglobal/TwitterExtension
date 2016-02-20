@@ -17,6 +17,7 @@ let twitterBaseURL = NSURL(string: "https://api.twitter.com")
 
 class TwitterClient: BDBOAuth1SessionManager {
     
+    
     class var sharedInstance: TwitterClient{
         struct Static{
             static let instance = TwitterClient(baseURL: twitterBaseURL, consumerKey: twitterConsumerKey, consumerSecret: twitterConsumerSecret)
@@ -45,12 +46,13 @@ class TwitterClient: BDBOAuth1SessionManager {
         
     }
     
-    func currentAccount(){
+    func currentAccount(success: (User) -> (), failure: (NSError) -> ()){
         
         
        GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation:NSURLSessionDataTask!, response: AnyObject?) -> Void in
             let user = User(dictionary: response as! NSDictionary)
         
+            success(user)
             print("user: \(user.name)")
             print("Screename: \(user.screenname)")
             print("profile url: \(user.profileURL)")
@@ -58,7 +60,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             
             }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
-                print("error getting current user")
+                failure(error)
         })
     }
     func login(success: () -> (), failure: (NSError) -> ()){
@@ -81,16 +83,28 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
 
     }
-    func handleOpenURL(url: NSURL){
-        let client = TwitterClient.sharedInstance
+    func logout(){
+        User.currentUser = nil
+        deauthorize()
         
-        client.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential(queryString: url.query), success: {(accessToken: BDBOAuth1Credential!) -> Void in
-            client.requestSerializer.saveAccessToken(accessToken)
+        NSNotificationCenter.defaultCenter().postNotificationName(User.userDidLogoutNotification, object: nil)
+    }
+    func handleOpenURL(url: NSURL){
+        let requestToken = BDBOAuth1Credential(queryString: url.query)
+        
+        fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: {(accessToken: BDBOAuth1Credential!) -> Void in
             
-            self.loginSuccess?()
+            //requestSerializer.saveAccessToken(accessToken)
+            
+            self.currentAccount({ (user: User) -> () in
+                User.currentUser = user
+                self.loginSuccess?()
+                }, failure: { (error: NSError) -> () in
+                    self.loginFailure?(error)
+            })
             
             }) { (error: NSError!) -> Void in
-                print("failed to receive access token")
+                print("Error: \(error.localizedDescription)")
                 self.loginFailure?(error)
         }
 
