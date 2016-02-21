@@ -14,6 +14,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 0, green: 0, blue: 0.8, alpha: 0.3)
+
         self.tableView.dataSource = self
         self.tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension

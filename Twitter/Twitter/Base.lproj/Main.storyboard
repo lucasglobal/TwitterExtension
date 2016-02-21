@@ -157,6 +157,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="fuG-FF-Zqx">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="4jv-5G-AUK">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onLogoutButton:" destination="MSa-gX-643" id="hxM-Ke-w9s"/>
                             </connections>

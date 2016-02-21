@@ -57,7 +57,6 @@ class CustomTableViewCell: UITableViewCell {
         }
         
         
-        print("favorite")
     }
     @IBAction func retweetAction(sender: AnyObject) {
         if(tweet?.retweeted == 0){
@@ -82,7 +81,6 @@ class CustomTableViewCell: UITableViewCell {
 
         }
         
-        print("retweet")
         
     }
 }
