@@ -8,17 +8,20 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var tweets: [Tweet]!
 
+    @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         TwitterClient.sharedInstance.homeTimeLine({ (tweets: [Tweet]) -> () in
             self.tweets = tweets
             for tweet in tweets{
                 print(tweet.text!)
+                self.tableView.reloadData()
             }
             }, failure: { (error: NSError) -> () in
                 print(error.localizedDescription)
@@ -36,14 +39,25 @@ class TweetsViewController: UIViewController {
         TwitterClient.sharedInstance.logout()
     }
 
-    /*
-    // MARK: - Navigation
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as! CustomTableViewCell
+        let tweet = tweets[indexPath.row]
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        cell.labelName.sizeToFit()
+        cell.labelName.text = String(tweet.text!)
+        return cell
     }
-    */
-
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let tweets = tweets{
+            return tweets.count
+        }
+        else{
+            return 0
+        }
+    }
 }
+
+
+
+
+
