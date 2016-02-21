@@ -16,7 +16,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+
         TwitterClient.sharedInstance.homeTimeLine({ (tweets: [Tweet]) -> () in
             self.tweets = tweets
             for tweet in tweets{
@@ -42,9 +44,25 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as! CustomTableViewCell
         let tweet = tweets[indexPath.row]
+    
+        //tweet labels
+        cell.tweetText.text = String(tweet.text!)
+        cell.tweetText.sizeToFit()
+        cell.tweetText.numberOfLines = 0
+        cell.labelDate.text = String(tweet.timeStamp!)
+            
+        //user labels
+        cell.labelUserName.text = tweet.userName
+        cell.labelUserHandle.text = "@\(tweet.userHandle!)"
+        
+        //user profile picture
+        cell.imageProfilePicture.setImageWithURL(tweet.imageProfileURL!)
+        cell.imageProfilePicture.layer.cornerRadius = 28
+        cell.imageProfilePicture.clipsToBounds = true
+        
 
-        cell.labelName.sizeToFit()
-        cell.labelName.text = String(tweet.text!)
+        
+        
         return cell
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
