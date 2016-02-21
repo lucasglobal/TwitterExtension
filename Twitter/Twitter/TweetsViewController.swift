@@ -21,10 +21,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         TwitterClient.sharedInstance.homeTimeLine({ (tweets: [Tweet]) -> () in
             self.tweets = tweets
-            for tweet in tweets{
-                print(tweet.text!)
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
+
             }, failure: { (error: NSError) -> () in
                 print(error.localizedDescription)
         })
@@ -44,7 +42,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as! CustomTableViewCell
         let tweet = tweets[indexPath.row]
-    
+        
+        cell.tweet = tweet
+        
         //tweet labels
         cell.tweetText.text = String(tweet.text!)
         cell.tweetText.sizeToFit()
@@ -59,6 +59,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.imageProfilePicture.setImageWithURL(tweet.imageProfileURL!)
         cell.imageProfilePicture.layer.cornerRadius = 28
         cell.imageProfilePicture.clipsToBounds = true
+        
+        
         
 
         

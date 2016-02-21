@@ -18,11 +18,15 @@ class Tweet: NSObject {
     var userHandle: String?
     var imageProfileURL: NSURL?
     
+    var favorited: Int = 0
+    var retweeted: Int = 0
+
+    
     init(dictionary: NSDictionary) {
         text = dictionary["text"] as? String
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         favoritesCount = (dictionary["favorites_count"] as? Int) ?? 0
-        
+        print(dictionary)
         
         let timesStampString = dictionary["created_at"] as? String
         
@@ -36,7 +40,6 @@ class Tweet: NSObject {
         }
         
         let user = dictionary["user"]
-        print(user)
         
         //user name labels
         userName = user!["name"] as? String
@@ -44,6 +47,15 @@ class Tweet: NSObject {
         
         //user picture
         imageProfileURL = NSURL(string: (user!["profile_image_url"] as! String))
+        
+        
+        //user actions
+        favorited = dictionary["favorited"] as! Int
+        retweeted = dictionary["retweeted"] as! Int
+
+        print(favorited)
+        print(retweeted)
+
         
         
     }

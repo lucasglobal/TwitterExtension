@@ -19,6 +19,9 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var imageProfilePicture: UIImageView!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var buttonRetweet: UIButton!
+    
+    var tweet: Tweet?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,13 +35,33 @@ class CustomTableViewCell: UITableViewCell {
     }
 
     @IBAction func favoriteAction(sender: AnyObject) {
-        buttonFavorite.setImage(UIImage(named: "like-action-pink"), forState: .Normal)
-        labelFavoriteNumber.textColor = UIColor.redColor()
-        print("favoritte")
+        if(tweet?.favorited == 0){
+            buttonFavorite.setImage(UIImage(named: "like-action-pink"), forState: .Normal)
+            labelFavoriteNumber.textColor = UIColor.redColor()
+            tweet?.favorited = 1
+        }
+        else{
+            buttonFavorite.setImage(UIImage(named: "like-action-grey"), forState: .Normal)
+            labelFavoriteNumber.textColor = UIColor.grayColor()
+            tweet?.favorited = 0
+        }
+        
+        
+        print("favorite")
     }
     @IBAction func retweetAction(sender: AnyObject) {
-        buttonRetweet.setImage(UIImage(named: "retweet-action-green"), forState: .Normal)
-        labelRetweetNumber.textColor = UIColor(red: 0, green: 0.8, blue: 0, alpha: 1)
+        if(tweet?.retweeted == 0){
+            buttonRetweet.setImage(UIImage(named: "retweet-action-green"), forState: .Normal)
+            labelRetweetNumber.textColor = UIColor(red: 0, green: 0.8, blue: 0, alpha: 1)
+            tweet?.retweeted = 1
+        }
+        else{
+            buttonRetweet.setImage(UIImage(named: "retweet-action-grey"), forState: .Normal)
+            labelRetweetNumber.textColor = UIColor.grayColor()
+            tweet?.retweeted = 0
+        }
+        
         print("retweet")
+        
     }
 }
