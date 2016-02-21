@@ -39,24 +39,18 @@
         <scene sceneID="Kvz-i2-kei">
             <objects>
                 <viewController id="MSa-gX-643" customClass="TweetsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="28" sectionFooterHeight="28" id="z4X-y7-Swk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="195" sectionHeaderHeight="28" sectionFooterHeight="28" id="z4X-y7-Swk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="170" id="xOe-fK-aMC" customClass="CustomTableViewCell" customModule="Twitter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="170"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="195" id="xOe-fK-aMC" customClass="CustomTableViewCell" customModule="Twitter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="195"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xOe-fK-aMC" id="RIz-TC-AOJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="169.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="194.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Today I am going to study all day" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aol-tO-oHH">
-                                            <rect key="frame" x="8" y="95.5" width="304" height="23.5"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                            <color key="textColor" red="0.35091145833333337" green="0.35091145833333337" blue="0.35091145833333337" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lucas Andrade Ribeiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdc-sZ-XPh">
                                             <rect key="frame" x="83" y="15" width="175.5" height="23.5"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -71,15 +65,49 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:50 PM - 21 Mar 2006" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghx-KG-Mt3">
-                                            <rect key="frame" x="8" y="144" width="124.5" height="16.5"/>
+                                            <rect key="frame" x="8" y="169" width="124.5" height="16.5"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                             <color key="textColor" red="0.45490196078431372" green="0.73333333333333328" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@andradelucasbr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pz-5Z-7Me">
-                                            <rect key="frame" x="83" y="36" width="126" height="21"/>
+                                            <rect key="frame" x="83" y="36" width="125.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                                             <color key="textColor" red="0.41714015151515149" green="0.41714015151515149" blue="0.41714015151515149" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sb4-Uq-9oH">
+                                            <rect key="frame" x="8" y="128" width="25" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="CVr-QK-s05"/>
+                                                <constraint firstAttribute="height" constant="33" id="S0U-h9-vam"/>
+                                            </constraints>
+                                            <state key="normal" image="like-action-grey"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Today I am going to study all day" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aol-tO-oHH">
+                                            <rect key="frame" x="8" y="96" width="304" height="23.5"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" red="0.35091145833333337" green="0.35091145833333337" blue="0.35091145833333337" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="23" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jU3-iT-Ztq">
+                                            <rect key="frame" x="34" y="133" width="20" height="24"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" red="0.35091145829999998" green="0.35091145829999998" blue="0.35091145829999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw1-Co-Zbl">
+                                            <rect key="frame" x="83" y="128" width="25" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="lHp-tk-Ix2"/>
+                                                <constraint firstAttribute="width" constant="25" id="pIR-bh-3jX"/>
+                                            </constraints>
+                                            <state key="normal" image="retweet-action-grey"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="45" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpV-Sr-0pk">
+                                            <rect key="frame" x="110" y="133" width="20" height="24"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" red="0.35091145829999998" green="0.35091145829999998" blue="0.35091145829999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -87,16 +115,24 @@
                                         <constraint firstItem="jdc-sZ-XPh" firstAttribute="top" secondItem="RIz-TC-AOJ" secondAttribute="top" constant="15" id="0Y7-WW-Lv6"/>
                                         <constraint firstItem="7pz-5Z-7Me" firstAttribute="leading" secondItem="GVe-uB-9dx" secondAttribute="trailing" constant="8" id="0e1-qa-KO7"/>
                                         <constraint firstItem="ghx-KG-Mt3" firstAttribute="leading" secondItem="RIz-TC-AOJ" secondAttribute="leading" constant="8" id="8Nh-nr-UqR"/>
+                                        <constraint firstItem="hw1-Co-Zbl" firstAttribute="leading" secondItem="jU3-iT-Ztq" secondAttribute="trailing" constant="29" id="AoR-qS-XYf"/>
+                                        <constraint firstItem="jU3-iT-Ztq" firstAttribute="top" secondItem="Aol-tO-oHH" secondAttribute="bottom" constant="13.5" id="B9r-v6-34X"/>
                                         <constraint firstItem="GVe-uB-9dx" firstAttribute="leading" secondItem="RIz-TC-AOJ" secondAttribute="leading" constant="8" id="BTh-TW-Loi"/>
                                         <constraint firstItem="Aol-tO-oHH" firstAttribute="leading" secondItem="RIz-TC-AOJ" secondAttribute="leading" constant="8" id="BdP-Sa-pK5"/>
-                                        <constraint firstItem="ghx-KG-Mt3" firstAttribute="top" secondItem="Aol-tO-oHH" secondAttribute="bottom" constant="25" id="D1j-m9-pVD"/>
                                         <constraint firstItem="jdc-sZ-XPh" firstAttribute="leading" secondItem="GVe-uB-9dx" secondAttribute="trailing" constant="8" id="EzG-PW-Q9s"/>
                                         <constraint firstItem="7pz-5Z-7Me" firstAttribute="leading" secondItem="jdc-sZ-XPh" secondAttribute="leading" id="FWN-9o-0kH"/>
                                         <constraint firstAttribute="bottom" secondItem="ghx-KG-Mt3" secondAttribute="bottom" constant="8.5" id="HHv-il-A3K"/>
                                         <constraint firstAttribute="trailing" secondItem="Aol-tO-oHH" secondAttribute="trailing" priority="999" constant="8" id="IHV-Qo-f2K"/>
+                                        <constraint firstItem="jU3-iT-Ztq" firstAttribute="leading" secondItem="Sb4-Uq-9oH" secondAttribute="trailing" constant="1" id="RH6-zf-C1U"/>
+                                        <constraint firstItem="hw1-Co-Zbl" firstAttribute="top" secondItem="Aol-tO-oHH" secondAttribute="bottom" constant="8.5" id="ZcP-CZ-Bqc"/>
+                                        <constraint firstItem="gpV-Sr-0pk" firstAttribute="leading" secondItem="hw1-Co-Zbl" secondAttribute="trailing" constant="2" id="dKA-RC-hIL"/>
                                         <constraint firstItem="7pz-5Z-7Me" firstAttribute="top" secondItem="jdc-sZ-XPh" secondAttribute="bottom" constant="-2" id="fgy-QQ-7RI"/>
+                                        <constraint firstItem="ghx-KG-Mt3" firstAttribute="top" secondItem="Sb4-Uq-9oH" secondAttribute="bottom" constant="8" id="oU1-1Q-xEc"/>
                                         <constraint firstItem="GVe-uB-9dx" firstAttribute="top" secondItem="RIz-TC-AOJ" secondAttribute="top" constant="8" id="orK-07-Xt5"/>
+                                        <constraint firstItem="Sb4-Uq-9oH" firstAttribute="leading" secondItem="RIz-TC-AOJ" secondAttribute="leading" constant="8" id="vbZ-BH-CUO"/>
                                         <constraint firstItem="Aol-tO-oHH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GVe-uB-9dx" secondAttribute="bottom" constant="25" id="voj-B1-pba"/>
+                                        <constraint firstItem="gpV-Sr-0pk" firstAttribute="top" secondItem="Aol-tO-oHH" secondAttribute="bottom" constant="13.5" id="w6Y-Xl-hWJ"/>
+                                        <constraint firstItem="Sb4-Uq-9oH" firstAttribute="top" secondItem="Aol-tO-oHH" secondAttribute="bottom" constant="8" id="wV5-HP-5Zs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -143,4 +179,8 @@
             <point key="canvasLocation" x="759" y="319"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="like-action-grey" width="54" height="72"/>
+        <image name="retweet-action-grey" width="75" height="72"/>
+    </resources>
 </document>
