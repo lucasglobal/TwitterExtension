@@ -50,6 +50,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.tweetText.sizeToFit()
         cell.tweetText.numberOfLines = 0
         cell.labelDate.text = String(tweet.timeStamp!)
+        cell.labelFavoriteNumber.text = String(tweet.favoritesCount)
+        cell.labelRetweetNumber.text = String(tweet.retweetCount)
             
         //user labels
         cell.labelUserName.text = tweet.userName
@@ -61,7 +63,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.imageProfilePicture.clipsToBounds = true
         
         
-        
+    
 
         
         

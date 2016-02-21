@@ -39,11 +39,21 @@ class CustomTableViewCell: UITableViewCell {
             buttonFavorite.setImage(UIImage(named: "like-action-pink"), forState: .Normal)
             labelFavoriteNumber.textColor = UIColor.redColor()
             tweet?.favorited = 1
+            
+            var pastFavorite = Int(self.labelFavoriteNumber.text!)
+            pastFavorite = pastFavorite! + 1
+            self.labelFavoriteNumber.text = String(pastFavorite!)
+
+            
         }
         else{
             buttonFavorite.setImage(UIImage(named: "like-action-grey"), forState: .Normal)
             labelFavoriteNumber.textColor = UIColor.grayColor()
             tweet?.favorited = 0
+            
+            var pastFavorite = Int(self.labelFavoriteNumber.text!)
+            pastFavorite = pastFavorite! - 1
+            self.labelFavoriteNumber.text = String(pastFavorite!)
         }
         
         
@@ -54,11 +64,22 @@ class CustomTableViewCell: UITableViewCell {
             buttonRetweet.setImage(UIImage(named: "retweet-action-green"), forState: .Normal)
             labelRetweetNumber.textColor = UIColor(red: 0, green: 0.8, blue: 0, alpha: 1)
             tweet?.retweeted = 1
+            
+            var pastRetweet = Int(self.labelRetweetNumber.text!)
+            pastRetweet = pastRetweet! + 1
+            self.labelRetweetNumber.text = String(pastRetweet!)
+
         }
         else{
             buttonRetweet.setImage(UIImage(named: "retweet-action-grey"), forState: .Normal)
             labelRetweetNumber.textColor = UIColor.grayColor()
             tweet?.retweeted = 0
+            
+            
+            var pastRetweet = Int(self.labelRetweetNumber.text!)
+            pastRetweet = pastRetweet! - 1
+            self.labelRetweetNumber.text = String(pastRetweet!)
+
         }
         
         print("retweet")
