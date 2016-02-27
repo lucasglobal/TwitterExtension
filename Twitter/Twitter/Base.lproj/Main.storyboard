@@ -215,6 +215,9 @@
                                     <constraint firstAttribute="width" constant="25" id="f9S-Gy-pSG"/>
                                 </constraints>
                                 <state key="normal" image="like-action-grey"/>
+                                <connections>
+                                    <action selector="favoriteAction:" destination="xSc-bV-sRP" eventType="touchUpInside" id="vA4-50-RSZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Today I am going to study all day" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0to-wG-tWu">
                                 <rect key="frame" x="8" y="126.5" width="304" height="23.5"/>
@@ -238,6 +241,9 @@
                                     <constraint firstAttribute="height" constant="34" id="ina-5y-Qo1"/>
                                 </constraints>
                                 <state key="normal" image="retweet-action-grey"/>
+                                <connections>
+                                    <action selector="retweetAction:" destination="xSc-bV-sRP" eventType="touchUpInside" id="q1c-rV-hZy"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="45" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMz-VQ-n7Q">
                                 <rect key="frame" x="110" y="164" width="20" height="24"/>

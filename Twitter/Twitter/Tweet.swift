@@ -20,7 +20,8 @@ class Tweet: NSObject {
     
     var favorited: Int = 0
     var retweeted: Int = 0
-
+    
+    var positionInArray: Int = 0
     
     init(dictionary: NSDictionary) {
         text = dictionary["text"] as? String
@@ -51,12 +52,7 @@ class Tweet: NSObject {
         
         //user actions
         favorited = dictionary["favorited"] as! Int
-        retweeted = dictionary["retweeted"] as! Int
-
-        print(favorited)
-        print(retweeted)
-
-        
+        retweeted = dictionary["retweeted"] as! Int        
         
     }
     

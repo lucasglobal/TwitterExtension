@@ -44,7 +44,7 @@ class CustomTableViewCell: UITableViewCell {
             pastFavorite = pastFavorite! + 1
             self.labelFavoriteNumber.text = String(pastFavorite!)
 
-            
+            tweet?.favoritesCount = tweet!.favoritesCount + 1
         }
         else{
             buttonFavorite.setImage(UIImage(named: "like-action-grey"), forState: .Normal)
@@ -54,8 +54,9 @@ class CustomTableViewCell: UITableViewCell {
             var pastFavorite = Int(self.labelFavoriteNumber.text!)
             pastFavorite = pastFavorite! - 1
             self.labelFavoriteNumber.text = String(pastFavorite!)
+            tweet?.favoritesCount = tweet!.favoritesCount - 1
+
         }
-        
         
     }
     @IBAction func retweetAction(sender: AnyObject) {
@@ -67,6 +68,7 @@ class CustomTableViewCell: UITableViewCell {
             var pastRetweet = Int(self.labelRetweetNumber.text!)
             pastRetweet = pastRetweet! + 1
             self.labelRetweetNumber.text = String(pastRetweet!)
+            tweet?.retweetCount = tweet!.retweetCount + 1
 
         }
         else{
@@ -78,6 +80,8 @@ class CustomTableViewCell: UITableViewCell {
             var pastRetweet = Int(self.labelRetweetNumber.text!)
             pastRetweet = pastRetweet! - 1
             self.labelRetweetNumber.text = String(pastRetweet!)
+
+            tweet?.retweetCount = tweet!.retweetCount - 1
 
         }
         

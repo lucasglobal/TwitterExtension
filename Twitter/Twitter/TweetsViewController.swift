@@ -42,11 +42,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func onLogoutButton(sender: AnyObject) {
         TwitterClient.sharedInstance.logout()
     }
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as! CustomTableViewCell
         let tweet = tweets[indexPath.row]
-        
+        tweet.positionInArray = indexPath.row
         cell.tweet = tweet
         
         //tweet labels
@@ -66,7 +69,24 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.imageProfilePicture.layer.cornerRadius = 28
         cell.imageProfilePicture.clipsToBounds = true
         
+        if(cell.tweet?.favorited == 0){
+            cell.buttonFavorite.setImage(UIImage(named: "like-action-grey"), forState: .Normal)
+            cell.labelFavoriteNumber.textColor = UIColor.grayColor()
+        }
+        else{
+            cell.buttonFavorite.setImage(UIImage(named: "like-action-pink"), forState: .Normal)
+            cell.labelFavoriteNumber.textColor = UIColor.redColor()
+        }
         
+        if(cell.tweet?.retweeted == 1){
+            cell.buttonRetweet.setImage(UIImage(named: "retweet-action-green"), forState: .Normal)
+            cell.labelRetweetNumber.textColor = UIColor(red: 0, green: 0.8, blue: 0, alpha: 1)
+            
+        }
+        else{
+            cell.buttonRetweet.setImage(UIImage(named: "retweet-action-grey"), forState: .Normal)
+            cell.labelRetweetNumber.textColor = UIColor.grayColor()
+        }
     
 
         
@@ -77,6 +97,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("DetailsVC") as! TweetsDetailViewController
         detailVC.tweet = tweets[indexPath.row]
+        detailVC.rowFromTableView = indexPath.row
         self.navigationController!.pushViewController(detailVC, animated: true)
         
     }
