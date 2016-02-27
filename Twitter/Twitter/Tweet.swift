@@ -34,7 +34,6 @@ class Tweet: NSObject {
         if let timesStampString = timesStampString{
             let formatter = NSDateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-            
 
 
             timeStamp = formatter.dateFromString(timesStampString)

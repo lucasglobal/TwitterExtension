@@ -56,10 +56,16 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.tweetText.text = String(tweet.text!)
         cell.tweetText.sizeToFit()
         cell.tweetText.numberOfLines = 0
-        cell.labelDate.text = String(tweet.timeStamp!)
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeStyle = .ShortStyle
+        dateFormatter.dateStyle = .MediumStyle
+        let dateToPrint: NSString = dateFormatter.stringFromDate(tweet.timeStamp!) as NSString
+        
+        cell.labelDate.text = String(dateToPrint)
         cell.labelFavoriteNumber.text = String(tweet.favoritesCount)
         cell.labelRetweetNumber.text = String(tweet.retweetCount)
-            
+        
         //user labels
         cell.labelUserName.text = tweet.userName
         cell.labelUserHandle.text = "@\(tweet.userHandle!)"

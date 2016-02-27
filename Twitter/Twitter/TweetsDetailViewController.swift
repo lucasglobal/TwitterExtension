@@ -40,7 +40,12 @@ class TweetsDetailViewController: UIViewController {
         self.labelTweetText.text = String(tweet!.text!)
         self.labelFavoriteNumber.text = String(tweet!.favoritesCount)
         self.labelRetweetNumber.text = String(tweet!.retweetCount)
-        self.labelDate.text = String(tweet!.timeStamp!)
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeStyle = .ShortStyle
+        dateFormatter.dateStyle = .MediumStyle
+        let dateToPrint: NSString = dateFormatter.stringFromDate(tweet!.timeStamp!) as NSString
+        self.labelDate.text = String(dateToPrint)
         
         if(tweet?.favorited == 1){
             buttonFavorite.setImage(UIImage(named: "like-action-pink"), forState: .Normal)
@@ -128,7 +133,6 @@ class TweetsDetailViewController: UIViewController {
         
     }
     override func viewWillDisappear(animated: Bool) {
-        print("dasdas")
         let tweetsViewController = self.navigationController?.viewControllers[0] as? TweetsViewController
         tweetsViewController?.tweets[rowFromTableView] = tweet!
     }
