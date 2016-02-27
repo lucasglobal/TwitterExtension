@@ -31,6 +31,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print(error.localizedDescription)
         })
         
+        NSNotificationCenter.defaultCenter().addObserverForName("ProfileTouch", object: nil, queue: NSOperationQueue.mainQueue()) { (NSNotification) -> Void in
+            let storyboard =  UIStoryboard(name: "Main", bundle: nil)
+            let profileVC = storyboard.instantiateViewControllerWithIdentifier("ProfileVC") as! ProfileViewController
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        }
+
         // Do any additional setup after loading the view.
     }
 
@@ -95,12 +101,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     
 
-        
+    
         
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+
         let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("DetailsVC") as! TweetsDetailViewController
         detailVC.tweet = tweets[indexPath.row]
         detailVC.rowFromTableView = indexPath.row

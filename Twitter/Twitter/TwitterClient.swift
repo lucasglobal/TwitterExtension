@@ -53,10 +53,6 @@ class TwitterClient: BDBOAuth1SessionManager {
             let user = User(dictionary: response as! NSDictionary)
         
             success(user)
-            print("user: \(user.name)")
-            print("Screename: \(user.screenname)")
-            print("profile url: \(user.profileURL)")
-            print("description: \(user.tagLine)")
             
             
             }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in

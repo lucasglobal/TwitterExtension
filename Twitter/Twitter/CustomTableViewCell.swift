@@ -24,6 +24,8 @@ class CustomTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
         // Initialization code
     }
     @IBOutlet weak var buttonFavorite: UIButton!
@@ -87,4 +89,13 @@ class CustomTableViewCell: UITableViewCell {
         
         
     }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent:event)
+        if let touch = touches.first {
+            if touch.view == imageProfilePicture{
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "ProfileTouch", object: self))
+            }
+        }
+    }
+
 }
