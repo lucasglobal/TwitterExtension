@@ -88,14 +88,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return 0
         }
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? TweetsDetailViewController{
-            
-        }
-        else{
-            print("not going to detail")
-        }
-    }
+
 }
 
 

@@ -30,14 +30,17 @@ class TweetsDetailViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         
-        //setting labels with User Data
+        //setting labels and picture with User Data
         self.imageProfilePicture.setImageWithURL(tweet!.imageProfileURL!)
-        self.labelUserName.text = String(tweet!.userName)
-        self.labelUserHandle.text = String(tweet!.userHandle)
+        self.imageProfilePicture.layer.cornerRadius = 28
+        self.imageProfilePicture.clipsToBounds = true
+        self.labelUserName.text = String(tweet!.userName!)
+        self.labelUserHandle.text = "@\(tweet!.userHandle!)"
         self.labelTweetText.text = String(tweet!.text!)
         self.labelFavoriteNumber.text = String(tweet!.favoritesCount)
         self.labelRetweetNumber.text = String(tweet!.retweetCount)
         self.labelDate.text = String(tweet!.timeStamp!)
+        
         // Do any additional setup after loading the view.
     }
 
