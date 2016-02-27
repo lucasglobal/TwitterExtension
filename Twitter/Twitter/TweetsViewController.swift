@@ -22,6 +22,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
 
+        //fetching data
         TwitterClient.sharedInstance.homeTimeLine({ (tweets: [Tweet]) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
@@ -72,12 +73,27 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("DetailsVC") as! TweetsDetailViewController
+        detailVC.tweet = tweets[indexPath.row]
+        self.navigationController!.pushViewController(detailVC, animated: true)
+        
+    }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let tweets = tweets{
             return tweets.count
         }
         else{
             return 0
+        }
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? TweetsDetailViewController{
+            
+        }
+        else{
+            print("not going to detail")
         }
     }
 }
