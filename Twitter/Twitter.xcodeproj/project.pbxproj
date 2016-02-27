@@ -21,6 +21,7 @@
 		E4449CCE1C71609600EDE7F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4449CCC1C71609600EDE7F2 /* LaunchScreen.storyboard */; };
 		E4449CD71C71645000EDE7F2 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4449CD61C71645000EDE7F2 /* TwitterClient.swift */; };
 		E4BF74B71C81272A00EB7D9F /* TweetsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF74B61C81272A00EB7D9F /* TweetsDetailViewController.swift */; };
+		E4BF74B91C81515600EB7D9F /* reply-action_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E4BF74B81C81515600EB7D9F /* reply-action_0.png */; };
 		E4E4DCCF1C796F4500278E89 /* retweet-action-green.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E4DCCD1C796F4500278E89 /* retweet-action-green.png */; };
 		E4E4DCD01C796F4500278E89 /* retweet-action-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E4DCCE1C796F4500278E89 /* retweet-action-grey.png */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		E4449CCF1C71609600EDE7F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4449CD61C71645000EDE7F2 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		E4BF74B61C81272A00EB7D9F /* TweetsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsDetailViewController.swift; sourceTree = "<group>"; };
+		E4BF74B81C81515600EB7D9F /* reply-action_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reply-action_0.png"; sourceTree = "<group>"; };
 		E4E4DCCD1C796F4500278E89 /* retweet-action-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-action-green.png"; sourceTree = "<group>"; };
 		E4E4DCCE1C796F4500278E89 /* retweet-action-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-action-grey.png"; sourceTree = "<group>"; };
 		F3FBBB9C12FAAF8185F5A3AB /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 				E42A6F5E1C796CAB003A136F /* like-action-grey.png */,
 				E4E4DCCD1C796F4500278E89 /* retweet-action-green.png */,
 				E4E4DCCE1C796F4500278E89 /* retweet-action-grey.png */,
+				E4BF74B81C81515600EB7D9F /* reply-action_0.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				E4449CCE1C71609600EDE7F2 /* LaunchScreen.storyboard in Resources */,
 				E4449CCB1C71609600EDE7F2 /* Assets.xcassets in Resources */,
 				E42A6F5F1C796CAB003A136F /* like-action-grey.png in Resources */,
+				E4BF74B91C81515600EB7D9F /* reply-action_0.png in Resources */,
 				E4E4DCD01C796F4500278E89 /* retweet-action-grey.png in Resources */,
 				E42A6F5C1C796C94003A136F /* like-action-pink.png in Resources */,
 				E4E4DCCF1C796F4500278E89 /* retweet-action-green.png in Resources */,
@@ -399,6 +403,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LucasAndradeRibeiro.Twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -411,6 +416,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LucasAndradeRibeiro.Twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};

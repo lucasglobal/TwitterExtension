@@ -8,17 +8,20 @@
 
 import UIKit
 
-class TweetsDetailViewController: UIViewController {
+class TweetsDetailViewController: UIViewController, UITextViewDelegate {
     var tweet: Tweet?
     var rowFromTableView: Int = 0
     
     
     @IBOutlet weak var imageProfilePicture: UIImageView!
     
+    @IBOutlet weak var textViewReply: UITextView!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelUserHandle: UILabel!
     @IBOutlet weak var labelUserName: UILabel!
     @IBOutlet weak var labelTweetText: UILabel!
+    @IBOutlet weak var buttonReplyWithImage: UIButton!
+    @IBOutlet weak var buttonReply: UIButton!
     
     @IBOutlet weak var buttonFavorite: UIButton!
     @IBOutlet weak var labelRetweetNumber: UILabel!
@@ -29,7 +32,7 @@ class TweetsDetailViewController: UIViewController {
         super.viewDidLoad()
         //change backbutton to white
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
+        self.textViewReply.delegate = self
         
         //setting labels and picture with User Data
         self.imageProfilePicture.setImageWithURL(tweet!.imageProfileURL!)
@@ -130,11 +133,23 @@ class TweetsDetailViewController: UIViewController {
 
         }
         
-        
+    
     }
     override func viewWillDisappear(animated: Bool) {
         let tweetsViewController = self.navigationController?.viewControllers[0] as? TweetsViewController
         tweetsViewController?.tweets[rowFromTableView] = tweet!
+    }
+    func textViewDidBeginEditing(textView: UITextView) {
+        self.textViewReply.text = ""
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            
+                self.buttonReply.alpha = 1
+        })
+        
+    }
+
+    @IBAction func sendReplyButton(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
     }
     /*
     // MARK: - Navigation
