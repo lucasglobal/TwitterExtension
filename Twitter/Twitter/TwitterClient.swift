@@ -106,7 +106,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         
         fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: {(accessToken: BDBOAuth1Credential!) -> Void in
             
-            //requestSerializer.saveAccessToken(accessToken)
+            //self.requestSerializer.saveAccessToken(accessToken)
             
             self.currentAccount({ (user: User) -> () in
                 User.currentUser = user

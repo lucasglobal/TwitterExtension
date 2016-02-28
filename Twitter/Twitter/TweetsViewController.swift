@@ -125,8 +125,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     @IBAction func userProfilePage(sender: AnyObject) {
         
+        
         let storyboard =  UIStoryboard(name: "Main", bundle: nil)
         let profileVC = storyboard.instantiateViewControllerWithIdentifier("ProfileVC") as! ProfileViewController
+        profileVC.userHandleFromCell = User.currentUser!.screenname! as String
+
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     func profilePage(){
