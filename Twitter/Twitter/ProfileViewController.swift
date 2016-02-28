@@ -8,13 +8,50 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var imageProfile: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var labelScreenName: UILabel!
+    @IBOutlet weak var labelNumberOfFollowers: UILabel!
+    @IBOutlet weak var labelNumberOfFollowing: UILabel!
+    @IBOutlet weak var imageHeaderView: UIImageView!
+    
+    var userHandleFromCell: String!
+    
+    var userDictionary: NSDictionary!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
 
-        // Do any additional setup after loading the view.
+        
+        TwitterClient.sharedInstance.otherUserhomeTimeLine(userHandleFromCell, sucess: { (dictionaries: [NSDictionary]) -> () in
+            
+            self.userDictionary = dictionaries[0]["user"] as! NSDictionary
+            print(self.userDictionary)
+            
+            self.imageHeaderView.setImageWithURL(NSURL(string: self.userDictionary!["profile_banner_url"] as! String)!)
+            self.imageProfile.setImageWithURL(NSURL(string: self.userDictionary!["profile_image_url"] as! String)!)
+            self.imageProfile.layer.cornerRadius = 50
+            self.imageProfile.clipsToBounds = true
+            
+            self.labelName.text = self.userDictionary!["name"] as? String
+            self.labelScreenName.text = "@\(self.userDictionary!["screen_name"]!)"
+            self.labelNumberOfFollowers.text = "\(self.userDictionary!["followers_count"]!)"
+            self.labelNumberOfFollowing.text = "\(self.userDictionary!["following"]!)"
+        
+            
+            
+            
+            self.tableView.reloadData()
+            
+            
+            
+            }) { (NSError) -> () in
+                print("problem fetching other user profile")
+        }        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +59,13 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        return UITableViewCell()
+    }
     /*
     // MARK: - Navigation
 

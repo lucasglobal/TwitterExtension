@@ -93,6 +93,12 @@ class CustomTableViewCell: UITableViewCell {
         super.touchesBegan(touches, withEvent:event)
         if let touch = touches.first {
             if touch.view == imageProfilePicture{
+                
+                //saving cell touched tag
+                let saving = NSUserDefaults.standardUserDefaults()
+                saving.setValue(self.tag, forKey: "cellTouchedTag")
+
+                
                 NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "ProfileTouch", object: self))
             }
         }

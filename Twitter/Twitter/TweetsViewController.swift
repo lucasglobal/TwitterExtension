@@ -21,6 +21,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        tableView.tag = 0
 
         //fetching data
         TwitterClient.sharedInstance.homeTimeLine({ (tweets: [Tweet]) -> () in
@@ -32,11 +33,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         })
         
         NSNotificationCenter.defaultCenter().addObserverForName("ProfileTouch", object: nil, queue: NSOperationQueue.mainQueue()) { (NSNotification) -> Void in
-            let storyboard =  UIStoryboard(name: "Main", bundle: nil)
-            let profileVC = storyboard.instantiateViewControllerWithIdentifier("ProfileVC") as! ProfileViewController
-            self.navigationController?.pushViewController(profileVC, animated: true)
+            
+            
+            self.profilePage()
         }
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -57,6 +58,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let tweet = tweets[indexPath.row]
         tweet.positionInArray = indexPath.row
         cell.tweet = tweet
+        cell.tag = indexPath.row
         
         //tweet labels
         cell.tweetText.text = String(tweet.text!)
@@ -121,7 +123,24 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return 0
         }
     }
-
+    @IBAction func userProfilePage(sender: AnyObject) {
+        
+        let storyboard =  UIStoryboard(name: "Main", bundle: nil)
+        let profileVC = storyboard.instantiateViewControllerWithIdentifier("ProfileVC") as! ProfileViewController
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    func profilePage(){
+        let saving = NSUserDefaults.standardUserDefaults()
+        let imageTouchedTag = saving.valueForKey("cellTouchedTag") as! Int
+        
+        let userHandle = tweets[imageTouchedTag].userHandle!
+        
+        let storyboard =  UIStoryboard(name: "Main", bundle: nil)
+        let profileVC = storyboard.instantiateViewControllerWithIdentifier("ProfileVC") as! ProfileViewController
+        profileVC.userHandleFromCell = userHandle
+        
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
 }
 
 
