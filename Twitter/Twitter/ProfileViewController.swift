@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    @IBOutlet weak var blurredViewBlue: UIView!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var imageProfile: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -43,7 +44,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.labelNumberOfFollowing.text = "\(self.userDictionary!["following"]!)"
         
             
-            
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.blurredViewBlue.bounds
+            blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            self.blurredViewBlue.addSubview(blurEffectView)
             
             self.tableView.reloadData()
             

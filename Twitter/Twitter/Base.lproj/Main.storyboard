@@ -201,7 +201,7 @@
                             </imageView>
                             <view contentMode="scaleAspectFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="n7O-37-05x">
                                 <rect key="frame" x="0.0" y="172" width="320" height="87"/>
-                                <color key="backgroundColor" red="0.70283261271525543" green="0.78747246891737266" blue="1" alpha="0.86592060810810811" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.47479310581032852" green="0.64567497465327306" blue="1" alpha="0.14872782939189189" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="vlq-A5-FGk"/>
                                 </constraints>
@@ -215,31 +215,31 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Followers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OR0-Qe-b7u">
                                 <rect key="frame" x="46" y="223" width="57" height="18"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                <color key="textColor" red="0.42745098039215684" green="0.45490196078431372" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.16905913043609017" green="0.17923108264569917" blue="0.19928118501188352" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="22" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIj-NR-nHQ">
                                 <rect key="frame" x="67" y="237" width="15.5" height="18"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                <color key="textColor" red="0.42745098039215684" green="0.45490196078431372" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.16905913043609017" green="0.17923108264569917" blue="0.19928118501188352" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="22" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rA-6Q-CNn">
                                 <rect key="frame" x="236.5" y="237" width="15.5" height="18"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                <color key="textColor" red="0.42745098039215684" green="0.45490196078431372" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.16905913043609017" green="0.17923108264569917" blue="0.19928118501188352" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pF-c0-3tB">
                                 <rect key="frame" x="215" y="223" width="58" height="18"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                <color key="textColor" red="0.42745098039215684" green="0.45490196078431372" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.16905913043609017" green="0.17923108264569917" blue="0.19928118501188352" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lucas Andrade Ribeiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljc-F0-7j1">
                                 <rect key="frame" x="46" y="180" width="227" height="30.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
-                                <color key="textColor" red="0.50196078431372548" green="0.53333333333333333" blue="0.58039215686274515" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.29987930824259673" green="0.31810845578728864" blue="0.34550421494355332" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HnX-mc-IbB">
@@ -281,6 +281,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nCK-So-O0k"/>
                     <connections>
+                        <outlet property="blurredViewBlue" destination="n7O-37-05x" id="4UZ-XK-yKc"/>
                         <outlet property="imageHeaderView" destination="z0x-3Y-b2e" id="t4D-9K-H3h"/>
                         <outlet property="imageProfile" destination="dQq-BD-u70" id="LMc-4X-rjj"/>
                         <outlet property="labelName" destination="Ljc-F0-7j1" id="Vif-g6-laE"/>
